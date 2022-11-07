@@ -1,0 +1,110 @@
+* {
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    margin: 0;
+    background-color: #4f596b;
+}
+
+/* para que la calculadora quede en el medio */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/*Color, sombra y forma de la calculadora*/
+.calculadora {
+    /*Diposicion de los elementos de adentro de la calculadora*/
+    display: grid;
+    grid-template-columns: repeat(4, 85px);
+    grid-template-rows: 180px repeat(8, 75px);
+    /*Color de fondo*/
+    background-color: #440196;
+    padding: 15px;
+    /*Bordes redondeados*/
+    border-radius: 15px 15px 30px 30px;
+    /*Sombra*/
+    box-shadow: 15px 10px 7px 5px #00000033;
+}
+
+/*Estilo de los botones*/
+button {
+    color: aliceblue;
+    cursor: pointer;
+    margin: 5px;
+    padding: 0;
+    border-radius: 18px;
+    font-size: 1.5em;
+    border: none;
+    background-color: #2f0069;
+    box-shadow: 5px 5px 10px -3px #00000040, -5px -5px 15px 3px #00ffc11f;
+}
+
+/*Animacion que se hace cuando se presiona el boton*/
+button:active {
+    background-color: #210049;
+    color: rgb(116, 116, 116);
+}
+
+button:focus {
+    outline: none;
+}
+
+.button-c {
+    background-color: #801743;
+}
+
+.button-c:active {
+    background-color: #641131;
+}
+
+.col-2 {
+    grid-column: span 2;
+}
+
+.col-4 {
+    grid-column: span 4;
+}
+
+/*Forma, color y tamaño de la pantalla de la calculadora*/
+.display {
+    font-weight: bold;
+    /*Pantalla de la calculadora de lado a lado con 1 / -1*/
+    grid-column: 1 / -1;
+    padding: 16px;
+    display: flex;
+    margin: 10px 10px 20px;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: #3b493c;
+    border-radius: 25px;
+    text-align: right;
+    justify-content: space-between;
+    word-break: break-all;
+    box-shadow: 0px 0px 5px 10px #00000033;
+}
+
+#valor-actual {
+    font-size: 1.5em;
+}
+
+#valor-anterior {
+    font-size: 2em;
+}
+
+.binario {
+    position: relative;
+    display: grid;
+    flex-direction: column;
+    
+}
+.genero {
+    top: 10%;
+    left: 72%;
+    position: absolute;
+    font-size: 110%;
+    color: rgba(242, 255, 0, 0.54);
+}
