@@ -27,6 +27,10 @@ class Calculadora {
         return Math.tan(num1);
     }
 
+    raiz(num1) {
+        return Math.sqrt(num1);
+    }
+
     factorial (num1) {
         var r = 1;
         for(var i = num1; i>0; i--){
@@ -59,6 +63,8 @@ class Calculadora {
         var suma = 0;
         var genero = '20';
         var codigoVerificador;
+
+        if(dni.length >8) return "Invalid DNI"; 
         
         if(num1=='2'){
             genero = '27';

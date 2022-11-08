@@ -12,6 +12,8 @@ class Display {
             multiplicar : 'x',
             dividir     : '%',
             factorial   : '!',
+            factorial   : '!',
+            raiz        : '√',
             sin         : 'sin',
             cos         : 'cos',
             tan         : 'tan',
@@ -35,7 +37,7 @@ class Display {
     // A esta funcion se le pasa el VALUE que esta en el html en cada operador.
     computar(tipo) {
         this.tipoOperacion !== 'igual';
-        if(this.tipoOperacion !== 'sin' && this.tipoOperacion !== 'cos' && this.tipoOperacion !== 'tan' && this.tipoOperacion !== 'factorial') {
+        if(this.tipoOperacion !== 'sin' && this.tipoOperacion !== 'cos' && this.tipoOperacion !== 'tan' && this.tipoOperacion !== 'factorial' && this.tipoOperacion !== 'raiz') {
             this.calcular();
         } else {
             this.calcularEspeciales();
@@ -44,7 +46,11 @@ class Display {
         this.valorAnterior = this.valorActual || this.valorAnterior;
         if(this.valorActual == 0) this.valorAnterior = this.valorActual;
         this.valorActual = '';
-        this.imprimirValores();
+        if(this.tipoOperacion == 'raiz'){
+            this.imprimirRaiz();
+        } else {
+            this.imprimirValores();
+        }
     }
 
     agregarNumero(numero) {
@@ -60,6 +66,11 @@ class Display {
     imprimirValores() {
         this.displayValorActual.textContent = this.valorActual;
         this.displayValorAnterior.textContent = `${this.valorAnterior} ${this.signos[this.tipoOperacion] || ''}`;
+    }
+
+    imprimirRaiz() {
+        this.displayValorActual.textContent = this.valorActual;
+        this.displayValorAnterior.textContent = `${this.signos[this.tipoOperacion] || ''} ${this.valorAnterior}`;
     }
 
     //Esta funcion se encarga de pasar los numeros que poaee el DISPLAY a la CLASE calculadora y realizar las operaciones segun el tipo de operacion
